@@ -1,0 +1,7 @@
+.item {
+    margin-top: 0.9rem;
+    margin-bottom: 1.8rem;
+    border-bottom: 0.04rem solid grey;
+    justify-content: center;
+    align-items: center;
+}

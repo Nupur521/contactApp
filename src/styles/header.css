@@ -1,0 +1,9 @@
+.header__heading {
+    text-align: center;
+    letter-spacing: 0.5rem;
+    text-transform: uppercase;
+    border-bottom: 0.03rem solid grey;
+    padding-bottom: 0.6rem;
+    font-weight: 600;
+    font-size: 1.1rem
+}
