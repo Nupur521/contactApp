@@ -6,7 +6,13 @@
 
 .addContact {
     margin-top: 1.2rem;
+
 }
+
+/* .labelForEmail,
+.labelForName {
+    text-align: left;
+} */
 
 .name,
 .email {

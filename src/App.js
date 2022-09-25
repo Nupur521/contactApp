@@ -3,6 +3,7 @@ import uuid from 'react-uuid'
 import Header from './components/Header';
 import AddContact from './components/AddContact';
 import ContactList from './components/ContactList';
+import  './styles/app.css'
 let contactValue;
 
 
@@ -48,7 +49,7 @@ function App() {
  },[contacts]);
 
   return (
-<div> 
+<div className='contactManager'> 
         <Header/>
         {/* passing function as a parameter to pass prop from child to parent */}
         <AddContact addContactHandler={addContactHandler}/>

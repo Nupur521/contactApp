@@ -31,7 +31,7 @@ function AddContact(props) {
         <form action="" className="contactForm" onSubmit={addcontact}>
           <div>
             <div>
-              <label>Name</label>
+              <label className="labelForName">Name</label>
             </div>
             <div className="name">
               <input
@@ -49,7 +49,7 @@ function AddContact(props) {
           </div>
           <div>
             <div>
-              <label>Email</label>
+              <label className="labelForEmail">Email</label>
             </div>
             <div className="email">
               <input type="text" name="" id="" value={details.email}
