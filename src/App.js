@@ -1,12 +1,12 @@
 import React,{useState,useEffect} from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import uuid from 'react-uuid'
 import Header from './components/Header';
 import AddContact from './components/AddContact';
 import ContactList from './components/ContactList';
-import  './styles/app.css'
+import  './styles/app.css';
+import ContactDetails from './components/ContactDetails';
 let contactValue;
-
-
 //To set the initial value of contacts
  if(localStorage.getItem('contacts'))
  {
@@ -15,12 +15,11 @@ let contactValue;
  }
  else
    contactValue=[];
- 
+
 
 function App() {
 
      const removeContactHandler=(id)=>{
-        console.log(id);
     const newContactList=contacts.filter(contact=>{
         return contact.id!==id;
      })
@@ -34,7 +33,6 @@ function App() {
  const [contacts,setContacts]=useState(contactValue);
  const addContactHandler=(contact)=>{
     setContacts([...contacts,{id: uuid(),...contact}]);
-    console.log(contacts);
  };
 
 
@@ -49,12 +47,17 @@ function App() {
  },[contacts]);
 
   return (
-<div className='contactManager'> 
-        <Header/>
+<div className='contactManager'>
+<Router>
+<Header/>
+<Routes>
+<Route path="/" element={<ContactList contacts={contacts} getContactId={removeContactHandler}/>}/>
+<Route path="/add" element={<AddContact addContactHandler={addContactHandler}/>}/>
+<Route path="/contact/:id" element=<ContactDetails/>/>
         {/* passing function as a parameter to pass prop from child to parent */}
-        <AddContact addContactHandler={addContactHandler}/>
-        <ContactList contacts={contacts} getContactId={removeContactHandler}/>
-    </div>
+</Routes>
+</Router>
+</div>
   )
 }
 

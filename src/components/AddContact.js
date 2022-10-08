@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import "../styles/addcontact.css";
+import {useNavigate} from 'react-router-dom';
+
+
+
 
 function AddContact(props) {
   const [details, changeDetails] = useState({
@@ -11,7 +15,7 @@ function AddContact(props) {
   function addcontact(e) {
     e.preventDefault(); //because we are using a button and we don't want our page to get refreshed
     if (details.name === "" || details.email === "") {
-      alert("the fields are empty miss universe");
+      alert("the fields are empty");
       return;
     } else {
       props.addContactHandler(details);
@@ -19,16 +23,14 @@ function AddContact(props) {
     return { ...previousState, name: "" }})
                    changeDetails(previousState => {
     return { ...previousState, email: "" }})
-   
     }
-    
   }
 
   return (
     <div className="addContact">
-      <div className="addContact__heading">Add Contact</div>
+      <div className="addContact__heading"><h1>Add Contact</h1></div>
       <div className="addContact__form">
-        <form action="" className="contactForm" onSubmit={addcontact}>
+     <form  className="contactForm" onSubmit={addcontact}>
           <div>
             <div>
               <label className="labelForName">Name</label>
@@ -58,7 +60,7 @@ function AddContact(props) {
                 })} />
             </div>
           </div>
-          <button className="formButton">Add</button>
+   <button className="formButton" type="submit">Add</button>
         </form>
       </div>
     </div>
